@@ -1,0 +1,53 @@
+{
+  "type": "module",
+  "name": "@dependable/tsx",
+  "version": "0.1.0",
+  "description": "Construct @dependable/view vdom using TypeScript TSX",
+  "author": "Sune Simonsen",
+  "license": "MIT",
+  "module": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./jsx-runtime": "./lib/runtime.js",
+    "./jsx-dev-runtime": "./lib/runtime.js"
+  },
+  "files": [
+    "dist",
+    "src",
+    "types"
+  ],
+  "keywords": [
+    "dependable",
+    "view",
+    "html",
+    "typescript",
+    "tsx"
+  ],
+  "scripts": {
+    "format": "prettier --write '**/*.{ts,tsx,md,json}'",
+    "test": "jest"
+  },
+  "bugs": "https://github.com/sunesimonsen/dependable-tsx/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sunesimonsen/dependable-tsx"
+  },
+  "dependencies": {
+    "@dependable/view": ">= 0.19"
+  },
+  "devDependencies": {
+    "@jest/globals": "^30.0.0-beta.3",
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^30.0.0-beta.3",
+    "prettier": "^3.5.3",
+    "ts-jest": "^29.3.4",
+    "typescript": "^4.7.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
