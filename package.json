@@ -33,7 +33,7 @@
     "url": "https://github.com/sunesimonsen/dependable-tsx"
   },
   "dependencies": {
-    "@dependable/view": ">= 0.19"
+    "@dependable/view": ">= 0.22"
   },
   "devDependencies": {
     "@jest/globals": "^30.0.0-beta.3",
