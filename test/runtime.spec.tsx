@@ -52,6 +52,12 @@ class ArrayChildren extends Component {
   }
 }
 
+class ContextPrinter extends Component {
+  render() {
+    return <p>{this.context.message}</p>
+  }
+}
+
 describe("jsx-runtime", () => {
   let container: Element;
 
@@ -159,6 +165,23 @@ describe("jsx-runtime", () => {
       "<h1>Testing</h1><p>This component returns an array of JSX</p>",
     );
   });
+
+  it("allows event handlers on primitive elements", () => {
+    render(<button onclick={() => console.log('wat')}>Click me</button>, container);
+
+    expect(container.innerHTML).toEqual(
+      "<button>Click me</button>",
+    );
+  })
+
+  it("allows components that uses the context", () => {
+
+    render(<ContextPrinter />, container, { message: 'Hello from context' });
+
+    expect(container.innerHTML).toEqual(
+      "<p>Hello from context</p>",
+    );
+  })
 
   it("allows cloning", () => {
     render(clone(<h1>Hello</h1>, { props: { className: "fancy" } }), container);
