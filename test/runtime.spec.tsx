@@ -58,6 +58,12 @@ class ContextPrinter extends Component {
   }
 }
 
+class ClassNameProducer {
+  toString() {
+    return "generated"
+  }
+}
+
 describe("jsx-runtime", () => {
   let container: Element;
 
@@ -175,12 +181,23 @@ describe("jsx-runtime", () => {
   })
 
   it("allows components that uses the context", () => {
-
     render(<ContextPrinter />, container, { message: 'Hello from context' });
 
     expect(container.innerHTML).toEqual(
       "<p>Hello from context</p>",
     );
+  })
+
+  it("allows stringable values for className attributes", () => {
+    render(<h1 className={new ClassNameProducer()}>Hello</h1>, container);
+
+    expect(container.innerHTML).toEqual('<h1 class="generated">Hello</h1>');
+  })
+
+  it("allows stringable values for class attributes", () => {
+    render(<h1 class={new ClassNameProducer()}>Hello</h1>, container);
+
+    expect(container.innerHTML).toEqual('<h1 class="generated">Hello</h1>');
   })
 
   it("allows cloning", () => {

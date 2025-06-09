@@ -43,12 +43,21 @@ export class Fragment {
 // Extend the global JSX namespace so TypeScript understands JSX.
 declare global {
   namespace JSX {
+    interface Stringable {
+      toString(): string;
+    }
+
     type IntrinsicElements = {
       [elemName: string]: any;
     } & {
       [K in keyof HTMLElementTagNameMap]: {
         children?: any;
-      } & Omit<Partial<HTMLElementTagNameMap[K]>, "children">;
+        className?: string | Stringable;
+        class?: string | Stringable;
+      } & Omit<
+        Omit<Omit<Partial<HTMLElementTagNameMap[K]>, "children">, "className">,
+        "class"
+      >;
     };
 
     interface ElementClass {
