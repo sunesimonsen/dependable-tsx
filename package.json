@@ -7,9 +7,21 @@
   "license": "MIT",
   "module": "./lib/src/index.js",
   "exports": {
-    ".": "./lib/src/index.js",
-    "./jsx-runtime": "./src/runtime.ts",
-    "./jsx-dev-runtime": "./src/runtime.ts"
+    ".": {
+      "types": "./lib/src/index.d.ts",
+      "module": "./lib/src/index.js",
+      "import": "./lib/src/index.js"
+    },
+    "./jsx-runtime": {
+      "types": "./lib/src/runtime.d.js",
+      "import": "./lib/src/runtime.js",
+      "module": "./lib/src/runtime.js"
+    },
+    "./jsx-dev-runtime": {
+      "types": "./lib/src/runtime.d.js",
+      "import": "./lib/src/runtime.js",
+      "module": "./lib/src/runtime.js"
+    }
   },
   "files": [
     "lib",
@@ -26,6 +38,7 @@
   "scripts": {
     "format": "prettier --write '**/*.{ts,tsx,md,json}'",
     "lint": "prettier --check '**/*.{ts,tsx,md,json}'",
+    "build": "tsc --build --clean && tsc --build",
     "test": "jest"
   },
   "bugs": "https://github.com/sunesimonsen/dependable-tsx/issues",
