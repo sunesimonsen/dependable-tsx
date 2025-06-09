@@ -54,13 +54,13 @@ class ArrayChildren extends Component {
 
 class ContextPrinter extends Component {
   render() {
-    return <p>{this.context.message}</p>
+    return <p>{this.context.message}</p>;
   }
 }
 
 class ClassNameProducer {
   toString() {
-    return "generated"
+    return "generated";
   }
 }
 
@@ -173,32 +173,31 @@ describe("jsx-runtime", () => {
   });
 
   it("allows event handlers on primitive elements", () => {
-    render(<button onclick={() => console.log('wat')}>Click me</button>, container);
-
-    expect(container.innerHTML).toEqual(
-      "<button>Click me</button>",
+    render(
+      <button onclick={() => console.log("wat")}>Click me</button>,
+      container,
     );
-  })
+
+    expect(container.innerHTML).toEqual("<button>Click me</button>");
+  });
 
   it("allows components that uses the context", () => {
-    render(<ContextPrinter />, container, { message: 'Hello from context' });
+    render(<ContextPrinter />, container, { message: "Hello from context" });
 
-    expect(container.innerHTML).toEqual(
-      "<p>Hello from context</p>",
-    );
-  })
+    expect(container.innerHTML).toEqual("<p>Hello from context</p>");
+  });
 
   it("allows stringable values for className attributes", () => {
     render(<h1 className={new ClassNameProducer()}>Hello</h1>, container);
 
     expect(container.innerHTML).toEqual('<h1 class="generated">Hello</h1>');
-  })
+  });
 
   it("allows stringable values for class attributes", () => {
     render(<h1 class={new ClassNameProducer()}>Hello</h1>, container);
 
     expect(container.innerHTML).toEqual('<h1 class="generated">Hello</h1>');
-  })
+  });
 
   it("allows cloning", () => {
     render(clone(<h1>Hello</h1>, { props: { className: "fancy" } }), container);
