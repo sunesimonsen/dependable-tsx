@@ -12,6 +12,8 @@ export const jsx = (
   return { type, props: propsWithoutChildren, children: [children] };
 };
 
+export const jsxDEV = jsx;
+
 type JSXSProps = {
   children: JSX.Node[];
   [keyName: string]: any;
@@ -25,6 +27,8 @@ export const jsxs = (
 
   return { type, props: propsWithoutChildren, children: children.flat() };
 };
+
+export const jsxsDEV = jsxs;
 
 type FragmentProps = {
   children: JSX.Nodes;
