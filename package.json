@@ -25,6 +25,7 @@
   ],
   "scripts": {
     "format": "prettier --write '**/*.{ts,tsx,md,json}'",
+    "lint": "prettier --check '**/*.{ts,tsx,md,json}'",
     "test": "jest"
   },
   "bugs": "https://github.com/sunesimonsen/dependable-tsx/issues",
@@ -48,6 +49,6 @@
     "access": "public"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   }
 }

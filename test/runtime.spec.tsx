@@ -48,10 +48,7 @@ class Add extends Component<AddProps> {
 
 class ArrayChildren extends Component {
   render(): JSX.Nodes {
-    return [
-      <h1>Testing</h1>,
-      <p>This component returns an array of JSX</p>
-    ];
+    return [<h1>Testing</h1>, <p>This component returns an array of JSX</p>];
   }
 }
 
@@ -85,7 +82,7 @@ describe("jsx-runtime", () => {
   it("allows rendering a component with attributes", () => {
     render(<Add a={12} b={30} />, container);
 
-    expect(container.innerHTML).toEqual('<span>12+30=42</span>');
+    expect(container.innerHTML).toEqual("<span>12+30=42</span>");
   });
 
   it("allows rendering a fragment", () => {
@@ -156,16 +153,16 @@ describe("jsx-runtime", () => {
   });
 
   it("allows components to returns arrays of nodes", () => {
-    render(<ArrayChildren />, container)
+    render(<ArrayChildren />, container);
 
     expect(container.innerHTML).toEqual(
-      '<h1>Testing</h1><p>This component returns an array of JSX</p>'
-    )
-  })
+      "<h1>Testing</h1><p>This component returns an array of JSX</p>",
+    );
+  });
 
   it("allows cloning", () => {
     render(clone(<h1>Hello</h1>, { props: { className: "fancy" } }), container);
 
     expect(container.innerHTML).toEqual('<h1 class="fancy">Hello</h1>');
-  })
+  });
 });
