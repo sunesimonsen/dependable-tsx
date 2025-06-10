@@ -1,4 +1,5 @@
-import { Component, render, clone } from "@dependable/tsx";
+import { Component } from "@dependable/tsx";
+import { render, clone } from "@dependable/view";
 import { describe, beforeEach, it } from "@jest/globals";
 
 type FancyHeadingProps = {
@@ -52,7 +53,9 @@ class ArrayChildren extends Component {
   }
 }
 
-class ContextPrinter extends Component {
+type Context = { message: string };
+
+class ContextPrinter extends Component<{}, Context> {
   render() {
     return <p>{this.context.message}</p>;
   }
@@ -61,6 +64,12 @@ class ContextPrinter extends Component {
 class ClassNameProducer {
   toString() {
     return "generated";
+  }
+}
+
+class NoChildren extends Component {
+  render() {
+    return <h1>Hello</h1>;
   }
 }
 
@@ -83,6 +92,12 @@ describe("jsx-runtime", () => {
     expect(container.innerHTML).toEqual(
       '<h1 title="This is a hello message">Hello</h1>',
     );
+  });
+
+  it("allows rendering an element children and without attributes", () => {
+    render(<NoChildren />, container);
+
+    expect(container.innerHTML).toEqual("<h1>Hello</h1>");
   });
 
   it("allows rendering a simple component", () => {

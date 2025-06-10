@@ -1,13 +1,10 @@
-export { render, clone } from "@dependable/view";
+export abstract class Component<TProps = {}, TContext = null> {
+  constructor(props: TProps, context: TContext) {
+    this.props = props;
+    this.context = context;
+  }
 
-type VoidProps = {
-  children?: void;
-};
-
-type Context = Record<string, any>;
-
-export abstract class Component<TProps = VoidProps> {
-  props: TProps | undefined;
-  context: Context = {};
+  readonly props: TProps;
+  readonly context: TContext;
   abstract render(props: TProps): JSX.Nodes;
 }
