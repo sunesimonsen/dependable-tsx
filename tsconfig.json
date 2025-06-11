@@ -1,4 +1,5 @@
 {
+  "include": ["src/**/*.ts"],
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
@@ -34,7 +35,9 @@
       "@dependable/tsx": ["src/index.ts"],
       "@dependable/tsx/jsx-runtime": ["src/runtime.ts"]
     },
-    // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
+    "rootDirs": [
+      "./src"
+    ] /* Allow multiple folders to be treated as one when resolving modules. */,
     // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */
     // "types": [],                                      /* Specify type package names to be included without being referenced in a source file. */
     // "allowUmdGlobalAccess": true,                     /* Allow accessing UMD globals from modules. */

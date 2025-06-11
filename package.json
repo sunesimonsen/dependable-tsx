@@ -5,29 +5,28 @@
   "description": "Construct @dependable/view vdom using TypeScript TSX",
   "author": "Sune Simonsen",
   "license": "MIT",
-  "module": "./lib/src/index.js",
+  "module": "./lib/index.js",
   "exports": {
     ".": {
-      "types": "./lib/src/index.d.ts",
-      "module": "./lib/src/index.js",
-      "import": "./lib/src/index.js"
+      "types": "./lib/index.d.ts",
+      "module": "./lib/index.js",
+      "import": "./lib/index.js"
     },
     "./jsx-runtime": {
-      "types": "./lib/src/runtime.d.js",
-      "import": "./lib/src/runtime.js",
-      "module": "./lib/src/runtime.js"
+      "types": "./lib/runtime.d.js",
+      "import": "./lib/runtime.js",
+      "module": "./lib/runtime.js"
     },
     "./jsx-dev-runtime": {
-      "types": "./lib/src/runtime.d.js",
-      "import": "./lib/src/runtime.js",
-      "module": "./lib/src/runtime.js"
+      "types": "./lib/runtime.d.js",
+      "import": "./lib/runtime.js",
+      "module": "./lib/runtime.js"
     }
   },
   "files": [
-    "lib",
-    "src"
+    "lib"
   ],
-  "types": "./lib/src/index.d.ts",
+  "types": "./lib/index.d.ts",
   "keywords": [
     "dependable",
     "view",
