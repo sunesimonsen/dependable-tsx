@@ -54,9 +54,16 @@ declare global {
         children?: any;
         className?: string | Stringable;
         class?: string | Stringable;
+        style?: string | Partial<CSSStyleDeclaration>;
       } & Omit<
-        Omit<Omit<Partial<HTMLElementTagNameMap[K]>, "children">, "className">,
-        "class"
+        Omit<
+          Omit<
+            Omit<Partial<HTMLElementTagNameMap[K]>, "children">,
+            "className"
+          >,
+          "class"
+        >,
+        "style"
       >;
     };
 

@@ -214,6 +214,17 @@ describe("jsx-runtime", () => {
     expect(container.innerHTML).toEqual('<h1 class="generated">Hello</h1>');
   });
 
+  it("allows passing partial style objects to primitive element", () => {
+    render(
+      <h1 style={{ color: "white", background: "red" }}>Hello</h1>,
+      container,
+    );
+
+    expect(container.innerHTML).toEqual(
+      '<h1 style="color: white; background: red;">Hello</h1>',
+    );
+  });
+
   it("allows cloning", () => {
     render(clone(<h1>Hello</h1>, { props: { className: "fancy" } }), container);
 
