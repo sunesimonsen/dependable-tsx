@@ -40,6 +40,8 @@ export class Fragment {
   }
 }
 
+export type RefCallback<T extends HTMLElement> = (element: T) => void;
+
 // Extend the global JSX namespace so TypeScript understands JSX.
 declare global {
   namespace JSX {
@@ -55,6 +57,7 @@ declare global {
         className?: string | Stringable;
         class?: string | Stringable;
         style?: string | Partial<CSSStyleDeclaration>;
+        ref?: RefCallback<HTMLElementTagNameMap[K]>;
       } & Omit<
         Omit<
           Omit<
