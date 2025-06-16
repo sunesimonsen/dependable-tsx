@@ -5,28 +5,27 @@
   "description": "Construct @dependable/view vdom using TypeScript TSX",
   "author": "Sune Simonsen",
   "license": "MIT",
-  "module": "./lib/src/index.js",
+  "module": "./dist/src/index.js",
   "exports": {
     ".": {
-      "types": "./lib/src/index.d.ts",
-      "module": "./lib/src/index.js",
-      "import": "./lib/src/index.js"
+      "types": "./dist/src/index.d.ts",
+      "module": "./dist/src/index.js",
+      "import": "./dist/src/index.js"
     },
     "./jsx-runtime": {
-      "types": "./lib/src/runtime.d.ts",
-      "import": "./lib/src/runtime.js",
-      "module": "./lib/src/runtime.js"
+      "types": "./dist/src/runtime.d.ts",
+      "import": "./dist/src/runtime.js",
+      "module": "./dist/src/runtime.js"
     },
     "./jsx-dev-runtime": {
-      "types": "./lib/src/runtime.d.ts",
-      "import": "./lib/src/runtime.js",
-      "module": "./lib/src/runtime.js"
+      "types": "./dist/src/runtime.d.ts",
+      "import": "./dist/src/runtime.js",
+      "module": "./dist/src/runtime.js"
     }
   },
-  "types": "./lib/src/index.d.ts",
+  "types": "./dist/src/index.d.ts",
   "files": [
-    "src",
-    "lib/src"
+    "dist"
   ],
   "keywords": [
     "dependable",
