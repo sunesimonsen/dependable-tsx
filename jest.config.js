@@ -1,7 +1,7 @@
 export default {
   preset: "ts-jest",
   testEnvironment: "jsdom",
-  modulePathIgnorePatterns: ["<rootDir>/lib/"],
+  modulePathIgnorePatterns: ["<rootDir>/dist/"],
   moduleNameMapper: {
     "^@dependable/tsx$": "<rootDir>/src/index.ts",
     "^@dependable/tsx/jsx-runtime$": "<rootDir>/src/runtime.ts",
