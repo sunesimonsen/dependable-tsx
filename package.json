@@ -13,12 +13,12 @@
       "import": "./lib/index.js"
     },
     "./jsx-runtime": {
-      "types": "./lib/runtime.d.js",
+      "types": "./lib/runtime.d.ts",
       "import": "./lib/runtime.js",
       "module": "./lib/runtime.js"
     },
     "./jsx-dev-runtime": {
-      "types": "./lib/runtime.d.js",
+      "types": "./lib/runtime.d.ts",
       "import": "./lib/runtime.js",
       "module": "./lib/runtime.js"
     }
