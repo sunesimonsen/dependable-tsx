@@ -36,6 +36,9 @@ type FragmentProps = {
 
 export class Fragment {
   render(props: FragmentProps) {
+    if (Array.isArray(props.children)) {
+      return props.children.flat();
+    }
     return props.children;
   }
 }
