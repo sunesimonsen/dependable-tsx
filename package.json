@@ -23,9 +23,6 @@
       "module": "./lib/runtime.js"
     }
   },
-  "files": [
-    "lib"
-  ],
   "types": "./lib/index.d.ts",
   "keywords": [
     "dependable",
