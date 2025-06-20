@@ -1,3 +1,7 @@
+/// <reference lib="dom" />
+
+import { HtmlAttributesByTag } from "./HtmlAttributes";
+
 type JSXProps = {
   children?: JSX.Node;
   [keyName: string]: any;
@@ -55,22 +59,7 @@ declare global {
     type IntrinsicElements = {
       [elemName: string]: any;
     } & {
-      [K in keyof HTMLElementTagNameMap]: {
-        children?: any;
-        className?: string | Stringable;
-        class?: string | Stringable;
-        style?: string | Partial<CSSStyleDeclaration>;
-        ref?: RefCallback<HTMLElementTagNameMap[K]>;
-      } & Omit<
-        Omit<
-          Omit<
-            Omit<Partial<HTMLElementTagNameMap[K]>, "children">,
-            "className"
-          >,
-          "class"
-        >,
-        "style"
-      >;
+      [K in keyof HtmlAttributesByTag]: HtmlAttributesByTag[K];
     };
 
     interface ElementClass {
@@ -83,7 +72,7 @@ declare global {
       children: Nodes;
     };
 
-    type Node = string | null | undefined | VElement;
+    type Node = string | number | boolean | null | undefined | VElement;
 
     type Nodes = Node | Node[];
 

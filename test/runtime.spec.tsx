@@ -189,11 +189,20 @@ describe("jsx-runtime", () => {
 
   it("allows event handlers on primitive elements", () => {
     render(
-      <button onclick={() => console.log("wat")}>Click me</button>,
+      <button onClick={() => console.log("wat")}>Click me</button>,
       container,
     );
 
     expect(container.innerHTML).toEqual("<button>Click me</button>");
+  });
+
+  it("allows aria attributes on primitive elements", () => {
+    render(
+      <button aria-label="Custom button" onClick={() => console.log("wat")}>Click me</button>,
+      container,
+    );
+
+    expect(container.innerHTML).toEqual(`<button aria-label="Custom button">Click me</button>`);
   });
 
   it("allows components that uses the context", () => {
@@ -204,12 +213,6 @@ describe("jsx-runtime", () => {
 
   it("allows stringable values for className attributes", () => {
     render(<h1 className={new ClassNameProducer()}>Hello</h1>, container);
-
-    expect(container.innerHTML).toEqual('<h1 class="generated">Hello</h1>');
-  });
-
-  it("allows stringable values for class attributes", () => {
-    render(<h1 class={new ClassNameProducer()}>Hello</h1>, container);
 
     expect(container.innerHTML).toEqual('<h1 class="generated">Hello</h1>');
   });
